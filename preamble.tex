@@ -1,0 +1,109 @@
+%!TEX root = ./samlet.tex
+
+\newcommand{\uppaal}{{\sc Uppaal}\xspace}
+\newcommand{\forprojekt}{DHI og Aquaporin}
+
+
+
+\textwidth 5.0in 
+\oddsidemargin 1.0in
+\evensidemargin 0.0in
+\headwidth 5.0in
+\def\test#1{\def\test{#1}}
+
+% ------------------- configure mini toc ------------------------------
+\setcounter{tocdepth}{1}        % setting depth of TOC
+\dominitoc                      % enable minitoc
+\setcounter{minitocdepth}{2}    % setting depth of miniTOC
+
+% ------------------- configure biblograhystyle
+%\bibliographystyle{alpha}
+%\bibliographystyle{plain}
+\bibliographystyle{agsm}
+
+\harvardparenthesis{square}
+
+
+% ------------------- hypernation rules --------------------------------
+\hyphenation{Itera-tion}
+
+
+% ------------------- configure logo image -------------------------------
+\newsavebox{\auclogo}
+\sbox{\auclogo}{\includegraphics[totalheight=4mm]{figurer/forside_p3}}
+
+%-------------------configurer fancy layout ------------------------------
+\pagestyle{fancy} %aktiver fancy layout
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} %gør alle chapter overskrifter lowercase i headder
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}} % gør alle section overskriver lowercase
+
+\fancyhf{} %reset settings til header og footer
+%\fancyhead[C]{\usebox{\auclogo}} %placere auclogo i center af headder
+\fancyhead[LE,RO]{\bfseries\thepage} %placere sidetal LE(left,even pages) RO(right,odd pages)
+\fancyhead[LO]{\bfseries\rightmark} % placere section overskrift LO i headder
+\fancyhead[RE]{\bfseries\leftmark} % placere chapter overskrift RE i headder
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+%\addtolength{\headheight}{0.5pt} %gør plads til regel
+\addtolength{\headheight}{24.26695pt}
+\fancypagestyle{plain}{%
+  \fancyhead{} %fjern headers på normale sider
+  \renewcommand{\headrulewidth}{0pt} %og på linien
+}
+%---------------------fancy layout config stop ------------------------------
+
+
+%---------------------smart forside
+\makeatletter
+\renewcommand{\maketitle}{\begin{titlepage}
+   \hbox{
+      \vrule depth 0.95\textheight 
+
+      \vtop{
+        \vskip 100\p@
+        \begin{center} 
+          \LARGE \bf \@title \par
+          \vskip 20\p@
+          \small \@author \par 
+          \vskip 40\p@ \par
+          \includegraphics[scale=0.25]{figurer/forside_p3} \par  
+	  \vskip 40\p@ \par        
+          %\includegraphics[scale=0.6]{figurer/aau_logo} \par
+          \small \@date
+        \end{center}
+       \vfil}
+   }
+   \pagestyle{empty}
+   \cleardoublepage %making sure that the next page is clean
+\end{titlepage}\setcounter{footnote}{0}}
+%----------------------slut smart forside
+
+%---------------------- smart chapter
+\makeatletter
+\def\@makechapterhead#1#2{\reset@font\parindent \z@\vspace*{10\p@}%
+  \hbox{%
+
+    \vbox{\hsize=2cm      
+      \begin{tabular}{c}
+        \scshape \strut \@chapapp{} \\
+        \fbox{%
+          \vrule depth 8em width 0pt%
+          \vrule height 0pt depth 0pt width 1ex%
+          {\LARGE \bfseries \strut \thechapter}%
+          \vrule height 0pt depth 0pt width 1ex%
+          }
+      \end{tabular}}% vbox end
+
+    \vbox{%
+      \advance\hsize by -2cm
+      \hrule\par
+      \vskip 1pt%
+      \hspace{1em}%
+      \huge \bfseries #1
+      \large \bfseries #2
+      }% vbox end
+    }% hbox end
+  \vskip 10\p@
+}
+%---------------------- slut smart chapter

@@ -173,6 +173,9 @@ pip-log.txt
 *.mtc4
 *.mtc5
 *.mtc6
+*.mtc7
+*.mtc8
+*.mtc9
 *.aux
 *.bbl
 *.log

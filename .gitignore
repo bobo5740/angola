@@ -53,17 +53,6 @@ local.properties
 *.pdb
 *.pgc
 *.pgd
-*.maf
-*.mtc
-*.mtc0
-*.aux
-*.mtc1
-*.mtc2
-*.mtc3
-*.mtc4
-*.mtc5
-*.mtc6
-*.bbl
 *.blg
 *.rsp
 *.sbr
@@ -173,3 +162,20 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+# LaTex crap
+*.maf
+*.mtc
+*.mtc0
+*.mtc1
+*.mtc2
+*.mtc3
+*.mtc4
+*.mtc5
+*.mtc6
+*.aux
+*.bbl
+*.log
+*.gz
+*.toc
+*.pdf
